@@ -194,6 +194,14 @@ void Adafruit_AMG88xx::readPixels(float *buf, uint8_t size) {
   }
 }
 
+void Adafruit_AMG88xx::readRaw(uint8_t *buf, uint8_t size) {
+  uint16_t recast;
+  float converted;
+  uint8_t bytesToRead =
+      min((uint8_t)(size << 1), (uint8_t)(AMG88xx_PIXEL_ARRAY_SIZE << 1));
+  //uint8_t rawArray[bytesToRead];
+  this->read(AMG88xx_PIXEL_OFFSET, buf, bytesToRead);
+}
 /**************************************************************************/
 /*!
     @brief  write one byte of data to the specified register
