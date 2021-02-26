@@ -75,6 +75,7 @@ public:
   bool begin(uint8_t addr = AMG88xx_ADDRESS);
 
   void readPixels(float *buf, uint8_t size = AMG88xx_PIXEL_ARRAY_SIZE);
+  void readRaw(uint8_t *buf, uint8_t size = AMG88xx_PIXEL_ARRAY_SIZE);
   float readThermistor();
 
   void setMovingAverageMode(bool mode);
